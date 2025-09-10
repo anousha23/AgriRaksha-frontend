@@ -1,50 +1,67 @@
-// src/components/Footer.jsx
-import React from "react";
-import {
-  Instagram,
-  Twitter,
-  Github,
-  Youtube,
-} from "lucide-react";
+// src/pages/LoginPage.jsx
+import React, { useEffect, useState } from "react";
+import man from "../assets/features/man.png";
 
-const Footer = () => {
+const LoginPage = () => {
+  const [user, setUser] = useState(null);
+
+  // Fetch user profile if already logged in
+  useEffect(() => {
+    fetch("http://localhost:5000/auth/profile", {
+      credentials: "include", // send cookies
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.user) setUser(data.user);
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
+  const handleGoogleLogin = () => {
+    window.location.href = "http://localhost:5000/auth/google";
+  };
+
   return (
-    <footer className="bg-green-700 text-white flex flex-col items-center px-6 py-8 min-h-[40vh] overflow-hidden">
-      
-      {/* Top Text */}
-      <h2 className="text-xl sm:text-2xl font-semibold text-center mb-6">
-        You can help Shape the future
-      </h2>
+    <div className="min-h-screen flex flex-col justify-center items-center bg-green-50 px-4">
+      {!user ? (
+        <>
+          <h1 className="text-3xl sm:text-4xl font-bold mb-8 text-green-900 text-center">
+            Welcome to AgriRakshak
+          </h1>
 
-      {/* Links */}
-      <div className="flex flex-wrap justify-center gap-6 mb-6 text-sm sm:text-base">
-        <a href="/" className="hover:underline">Home</a>
-        <a href="/forum" className="hover:underline">Open chat forum</a>
-        <a href="/contact" className="hover:underline">Contact Us</a>
-      </div>
+          {/* Card */}
+          <div className="bg-white rounded-2xl shadow-lg p-6 sm:p-8 flex flex-col items-center w-full max-w-sm sm:max-w-md">
+            <img
+              src={man}
+              alt="man illustration"
+              className="w-32 sm:w-40 mb-6"
+            />
 
-      {/* Social Icons */}
-      <div className="flex gap-6">
-        <a href="#" className="hover:text-gray-200">
-          <Instagram size={24} />
-        </a>
-        <a href="#" className="hover:text-gray-200">
-          <Twitter size={24} />
-        </a>
-        <a href="#" className="hover:text-gray-200">
-          <Github size={24} />
-        </a>
-        <a href="#" className="hover:text-gray-200">
-          <Youtube size={24} />
-        </a>
-      </div>
-
-      {/* Bottom Text */}
-      <div className="text-[10vw]  font-bold text-center">
-        AGRI RAKSHAK
-      </div>
-    </footer>
+            <button
+              onClick={handleGoogleLogin}
+              className="w-full px-6 py-3 bg-green-600 text-white rounded-lg shadow-md hover:bg-green-700 transition"
+            >
+              Sign in with Google
+            </button>
+          </div>
+        </>
+      ) : (
+        <>
+          <h1 className="text-2xl sm:text-3xl font-bold text-green-900 mb-4 text-center">
+            Hello, {user.name} 👋
+          </h1>
+          <img
+            src={user.avatar}
+            alt="avatar"
+            className="w-20 h-20 rounded-full mb-4"
+          />
+          <p className="text-green-800 text-center break-words">
+            Email: {user.email}
+          </p>
+        </>
+      )}
+    </div>
   );
 };
 
-export default Footer;
+export default LoginPage;
