@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 import Features from "./pages/Features";
-import Footer from "./pages/Footer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
+import Upload from "./pages/Upload";
+import Footer from "./pages/Footer";
+import Herosection from "./pages/HeroSection";
+
 
 function App() {
   const [user, setUser] = useState(null);
@@ -27,12 +31,22 @@ function App() {
   return (
     <div className="flex flex-col min-h-screen bg-white text-gray-900">
       {user ? (
-        <>
-          <Features />
-        </>
+       <BrowserRouter>
+      <Routes>
+        <Route path="/" element={
+          <>
+          <Herosection />
+          <Features />  
+          <Footer />
+          </>} />
+        <Route path="/upload" element={<Upload />} />
+      </Routes>
+    </BrowserRouter>
       ) : (
         <LoginPage setUser={setUser} />
       )}
+     
+  
     </div>
   );
 }
