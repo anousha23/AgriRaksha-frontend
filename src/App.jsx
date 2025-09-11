@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 import Features from "./pages/Features";
-import Footer from "./pages/Footer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
+import Upload from "./pages/Upload";
+import Footer from "./pages/Footer";
+
+
 
 function App() {
   const [user, setUser] = useState(null);
@@ -27,18 +31,19 @@ function App() {
   return (
     <div className="flex flex-col min-h-screen bg-white text-gray-900">
       {user ? (
-        <>
-          <Features />
-        </>
+       <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Features />} />
+        <Route path="/upload" element={<Upload />} />
+      </Routes>
+    </BrowserRouter>
       ) : (
         <LoginPage setUser={setUser} />
       )}
+      <Footer />
+  
     </div>
   );
 }
 
-<<<<<<< HEAD
 export default App;
-=======
-export default App;
->>>>>>> c34dd8f89f4b12b9a2f22c1b90adac5b8b359515
