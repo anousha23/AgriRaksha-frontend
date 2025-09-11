@@ -6,13 +6,13 @@ import camera from "../assets/features/camera.webp";
 import axios from "axios";
 
 export default function UploadSection() {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const [file, setFile] = useState(null);
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
 
   const handleBackClick = () => {
-    navigate("/"); //routes back to herosection
+    navigate("/");
   };
 
   const handleFileChange = (e) => {
@@ -42,28 +42,22 @@ export default function UploadSection() {
 
   return (
     <div className="flex flex-col md:flex-row items-center justify-center bg-[#FFF6ED] min-h-screen p-4 sm:p-6 md:p-12 gap-6 md:gap-12 overflow-hidden relative">
-
       <button
         onClick={handleBackClick}
         className="fixed top-4 left-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow-lg z-50"
       >
-         <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="h-5 w-5"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        strokeWidth={2}
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M15 19l-7-7 7-7"
-        />
-      </svg>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
       </button>
 
-   
       <div className="flex flex-col items-center md:items-start w-full max-w-[280px]">
         <img
           src={sman}
@@ -74,7 +68,6 @@ export default function UploadSection() {
           Detect the disease by simply uploading a picture
         </p>
       </div>
-
 
       <div className="flex flex-col items-center w-full max-w-sm md:max-w-md">
         <div className="bg-[#FFF6ED] shadow-2xl rounded-2xl p-4 sm:p-6 md:p-8 w-full md:h-[35vh] flex flex-col items-center justify-center">
@@ -117,14 +110,30 @@ export default function UploadSection() {
         </div>
 
         {result && (
-          <div className="mt-6 bg-white p-4 rounded-xl shadow w-full text-center">
+          <div className="mt-6 bg-white p-4 rounded-xl shadow w-full text-center space-y-3">
             {result.error ? (
               <p className="text-red-500 font-medium">{result.error}</p>
             ) : (
-              <p className="text-gray-800 font-medium text-base sm:text-lg">
-                Disease: {result.disease} <br />
-                Confidence: {Math.round(result.confidence * 100)}%
-              </p>
+              <>
+                <p className="text-gray-800 font-medium text-base sm:text-lg">
+                  Disease: {result.disease}
+                </p>
+                {result.info && (
+                  <p className="text-gray-700 text-sm sm:text-base leading-relaxed">
+                    {result.info}
+                  </p>
+                )}
+                {result.more_info_url && (
+                  <a
+                    href={result.more_info_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline text-sm sm:text-base"
+                  >
+                    Learn more
+                  </a>
+                )}
+              </>
             )}
           </div>
         )}
