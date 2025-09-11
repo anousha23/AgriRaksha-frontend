@@ -2,21 +2,39 @@ import React, { useState } from "react";
 
 const Silo = () => {
   const [quantity, setQuantity] = useState(0);
+  const [address, setAddress] = useState("");
+  const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  const increaseQuantity = () => {
-    setQuantity((prev) => prev + 1);
-  };
-
-  const decreaseQuantity = () => {
-    setQuantity((prev) => (prev > 0 ? prev - 1 : 0));
-  };
+  const increaseQuantity = () => setQuantity((prev) => prev + 1);
+  const decreaseQuantity = () => setQuantity((prev) => (prev > 0 ? prev - 1 : 0));
 
   const handleInputChange = (e) => {
     const value = parseInt(e.target.value, 10);
-    if (!isNaN(value) && value >= 0) {
-      setQuantity(value);
-    } else {
-      setQuantity(0);
+    setQuantity(!isNaN(value) && value >= 0 ? value : 0);
+  };
+
+  const handleFindStorage = async () => {
+    if (!address || quantity <= 0) {
+      alert("Please enter address and quantity.");
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const res = await fetch(
+  `http://localhost:5000/ml/silos?address=${encodeURIComponent(address)}&quantity=${quantity}`,
+  { credentials: "include" }
+);
+
+      if (!res.ok) throw new Error("Failed to fetch results");
+      const data = await res.json();
+      setResults(data);
+    } catch (err) {
+      console.error("Error fetching storage:", err);
+      setResults([]);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -35,9 +53,7 @@ const Silo = () => {
       </div>
 
       <div className="w-full max-w-2xl bg-[#EDE6D4] shadow-lg rounded-lg p-6 space-y-4">
-        <h2 className="text-xl font-semibold text-[#4B5320]">
-          Find Storage Near You
-        </h2>
+        <h2 className="text-xl font-semibold text-[#4B5320]">Find Storage Near You</h2>
 
         <div>
           <label className="block mb-1 text-sm font-medium">
@@ -45,6 +61,8 @@ const Silo = () => {
           </label>
           <input
             type="text"
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
             placeholder="e.g. Nashik, Maharashtra"
             className="w-full px-4 py-2 border border-[#C2B280] rounded-md focus:outline-none focus:ring-2 focus:ring-[#8B5E3C]"
           />
@@ -77,10 +95,29 @@ const Silo = () => {
           </div>
         </div>
 
-        <button className="w-full py-2 bg-[#4B5320] text-white rounded-lg hover:bg-[#3A4220] transition font-semibold">
-          Find Storage
+        <button
+          onClick={handleFindStorage}
+          disabled={loading}
+          className="w-full py-2 bg-[#4B5320] text-white rounded-lg hover:bg-[#3A4220] transition font-semibold"
+        >
+          {loading ? "Finding..." : "Find Storage"}
         </button>
       </div>
+
+      {results.length > 0 && (
+        <div className="mt-8 w-full max-w-3xl space-y-4">
+          <h3 className="text-xl font-bold">Results</h3>
+          {results.map((r, i) => (
+            <div key={i} className="bg-white p-4 rounded-lg shadow">
+              <h4 className="font-semibold">{r.name}</h4>
+              <p>{r.city}, {r.state}</p>
+              <p>Distance: {r.distance_km} km</p>
+              <p>Cost: ₹{r.cost_per_tonne_per_day}/tonne/day</p>
+              <p>Capacity: {r.available_capacity_tonnes} tonnes</p>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

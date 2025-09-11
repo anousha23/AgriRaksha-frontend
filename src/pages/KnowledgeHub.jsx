@@ -82,7 +82,7 @@ const KnowledgeHub = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 px-40">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:px-40">
         {filteredVideos.length > 0 ? (
           filteredVideos.map((video, idx) => (
             <VideoCard key={idx} {...video} />

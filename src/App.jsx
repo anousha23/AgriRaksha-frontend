@@ -8,6 +8,7 @@ import Herosection from "./pages/HeroSection";
 import SmartNudge from "./pages/SmartNudge";
 import Gov from "./pages/GovernmentSchemes";
 import Knowledge from "./pages/KnowledgeHub";
+import Silo from "./pages/Silo";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -16,6 +17,8 @@ function App() {
     fetch("http://localhost:5000/auth/profile", {
       credentials: "include",
     })
+
+ 
       .then((res) => {
         if (!res.ok) throw new Error("Not logged in");
         return res.json();
@@ -45,6 +48,8 @@ function App() {
         <Route path="/smartnudge" element={<SmartNudge />} />
         <Route path="/knowledge" element={<Knowledge />} />
         <Route path="/schemes" element={<Gov />} />
+        <Route path="/silo" element={<Silo/>} />
+
       </Routes>
     </BrowserRouter>
       ) : (
