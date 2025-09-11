@@ -1,47 +1,43 @@
-// src/components/Footer.jsx
 import React from "react";
-import {
-  Instagram,
-  Twitter,
-  Github,
-  Youtube,
-} from "lucide-react";
+import { Instagram, Twitter, Github, Youtube } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-green-700 text-white flex flex-col  items-center px-6 py-8 max-h-[45vh] overflow-hidden">
-      
-      {/* Top Text */}
-      <h2 className="text-xl sm:text-2xl font-semibold text-center mb-6">
-        You can help Shape the future
+    <footer className="bg-green-800 text-white flex flex-col items-center px-6 py-10 space-y-6">
+      <h2 className="text-2xl sm:text-3xl font-extrabold text-center tracking-wider drop-shadow-md">
+        You can help Shape the Future
       </h2>
 
-      {/* Links */}
-      <div className="flex flex-wrap justify-center gap-6 mb-6 text-sm sm:text-base">
-        <a href="/" className="hover:underline">Home</a>
-        <a href="/forum" className="hover:underline">Open chat forum</a>
-        <a href="/contact" className="hover:underline">Contact Us</a>
+      <div className="flex flex-wrap justify-center gap-6 mb-6 text-base sm:text-lg font-medium">
+        <a href="/" className="hover:underline hover:text-yellow-300 transition-colors">
+          Home
+        </a>
+        <a href="/forum" className="hover:underline hover:text-yellow-300 transition-colors">
+          Open Chat Forum
+        </a>
+        <a href="/contact" className="hover:underline hover:text-yellow-300 transition-colors">
+          Contact Us
+        </a>
       </div>
 
-      {/* Social Icons */}
       <div className="flex gap-6">
-        <a href="#" className="hover:text-gray-200">
-          <Instagram size={24} />
-        </a>
-        <a href="#" className="hover:text-gray-200">
-          <Twitter size={24} />
-        </a>
-        <a href="#" className="hover:text-gray-200">
-          <Github size={24} />
-        </a>
-        <a href="#" className="hover:text-gray-200">
-          <Youtube size={24} />
-        </a>
+        {[Instagram, Twitter, Github, Youtube].map((Icon, idx) => (
+          <a
+            key={idx}
+            href="#"
+            className="p-2 rounded-full bg-green-700 hover:bg-yellow-400 hover:text-green-900 transition-colors shadow-md"
+          >
+            <Icon size={24} />
+          </a>
+        ))}
       </div>
 
-      {/* Bottom Text */}
-      <div className="text-[10vw] font-bold text-center">
+      <div className="mt-6 text-3xl sm:text-5xl font-extrabold text-center bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-green-200 drop-shadow-lg tracking-widest">
         AGRI RAKSHAK
+      </div>
+
+      <div className="text-sm sm:text-base text-gray-200 mt-2">
+        &copy; {new Date().getFullYear()} Agri Rakshak. All rights reserved.
       </div>
     </footer>
   );

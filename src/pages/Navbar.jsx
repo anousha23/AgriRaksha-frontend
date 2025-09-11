@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Search, User, Menu, X } from "lucide-react";
 import { Link as ScrollLink, scroller } from "react-scroll";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -50,9 +51,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`w-full flex justify-center fixed top-0 left-0 right-0 z-50 transition-transform duration-300 
-        
-      `}
+      className={`w-full flex justify-center fixed top-0 left-0 right-0 z-50 transition-transform duration-300 `}
     >
       <div className="flex items-center justify-between w-11/12 md:w-4/5 lg:w-2/3 bg-gradient-to-r from-green-300 to-emerald-400 rounded-full px-6 py-3 mt-4 shadow-lg">
 
@@ -105,9 +104,11 @@ const Navbar = () => {
             />
           </form>
 
-          <button className="p-2 rounded-full bg-white/70 hover:bg-white transition-colors duration-200 shadow">
-            <User className="w-6 h-6 text-gray-800" />
-          </button>
+          <Link to="/profile">
+            <button className="p-2 rounded-full bg-white/70 hover:bg-white transition-colors duration-200 shadow">
+              <User className="w-6 h-6 text-gray-800" />
+            </button>
+          </Link>
 
           <button
             className="lg:hidden p-2 rounded-full bg-white/70 hover:bg-white transition-colors duration-200 shadow"

@@ -104,7 +104,7 @@ export default function UploadSection() {
             {loading ? "Detecting..." : "Detect Disease"}
           </button>
 
-          <p className="mt-2 text-xs sm:text-sm text-gray-500 text-center leading-snug px-2">
+          <p className="mt-0 text-xs sm:text-sm text-gray-500 text-center leading-snug px-2 ">
             Or drop a file, paste image or url
           </p>
         </div>
