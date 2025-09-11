@@ -1,14 +1,49 @@
-import React from "react";
+import { useState, useEffect } from "react";
+import Features from "./pages/Features";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LoginPage from "./pages/LoginPage";
+import Upload from "./pages/Upload";
+import Footer from "./pages/Footer";
 
-import HeroSection from "./HeroSection";
 
-const App = () => {
+
+function App() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/auth/profile", {
+      credentials: "include",
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error("Not logged in");
+        return res.json();
+      })
+      .then((data) => {
+        if (data.user) {
+          setUser(data.user);
+        } else {
+          setUser(null);
+        }
+      })
+      .catch(() => setUser(null));
+  }, []);
+
   return (
     <div className="flex flex-col min-h-screen bg-white text-gray-900">
- 
-         <HeroSection />
+      {user ? (
+       <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Features />} />
+        <Route path="/upload" element={<Upload />} />
+      </Routes>
+    </BrowserRouter>
+      ) : (
+        <LoginPage setUser={setUser} />
+      )}
+      <Footer />
+  
     </div>
   );
-};
+}
 
 export default App;
