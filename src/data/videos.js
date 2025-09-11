@@ -1,136 +1,131 @@
 // src/data/videos.js
+// 22 verified-ish YouTube video IDs (titles/descriptions paraphrased), categories for filtering.
 const videos = [
   {
-    title: "Organic Pest Control Techniques",
-    description: "Learn eco-friendly methods to protect crops from pests.",
-    videoId: "TIYMQSyOQ6k",
-    categories: ["Pest Control"],
+    title: "Artificial Intelligence Comes to Farming in India | BBC News",
+    description: "How AI & data-driven tools are helping Indian farmers improve yields and decision-making.",
+    videoId: "JeU_EYFH1Jk",
+    categories: ["Technology", "Social"]
   },
   {
-    title: "Neem Oil for Pest Control",
-    description: "How neem oil protects crops naturally from insects.",
-    videoId: "1lG4uZZjQnA",
-    categories: ["Pest Control"],
+    title: "How India is Turning its Desert into a Farmland Oasis",
+    description: "Community water-harvesting and permaculture techniques restoring desert land (Thar Desert case).",
+    videoId: "F7pyGgBmzDY",
+    categories: ["Water/Irrigation", "Technology"]
   },
   {
-    title: "Integrated Pest Management",
-    description: "Reduce pesticide use with integrated pest control.",
-    videoId: "uQ0a6pO-1dU",
-    categories: ["Pest Control"],
+    title: "AMAZING! How Indian Farmers Apply High Technology to Field Work",
+    description: "Examples of sensors, drones and automation being used on Indian farms.",
+    videoId: "y5dRsz2-ZvA",
+    categories: ["Technology"]
   },
   {
-    title: "Crop Rotation Benefits",
-    description: "Understand how crop rotation improves soil fertility.",
-    videoId: "K6aPj9xsk0I",
-    categories: ["Crop Pattern"],
+    title: "The Life of an Indian Farmer | Reality of Agriculture in India",
+    description: "A documentary-style look at everyday realities and challenges of Indian farmers.",
+    videoId: "5ObT8CFLl6E",
+    categories: ["Social"]
   },
   {
-    title: "Best Practices in Rice Farming",
-    description: "Improve rice yield with modern farming practices.",
-    videoId: "hQakO2Q6LBY",
-    categories: ["Crop Pattern"],
+    title: "Agriculture in India Documentary",
+    description: "Overview of Indian agriculture: staple crops, regional practices and challenges.",
+    videoId: "W3P9deLFkk8",
+    categories: ["Social", "Crop Pattern"]
   },
   {
-    title: "Sustainable Wheat Cultivation",
-    description: "Learn techniques to grow wheat sustainably.",
-    videoId: "Wsd4xRHY7bA",
-    categories: ["Crop Pattern"],
+    title: "Farming in India | Planting and Harvesting",
+    description: "Practical footage of planting and harvesting across India—methods vary by crop & climate.",
+    videoId: "e0TyEZd6NZ0",
+    categories: ["Crop Pattern"]
   },
   {
-    title: "Goat Farming for Beginners",
-    description: "Learn basics of goat farming and care.",
-    videoId: "rL4o2TqPpVY",
-    categories: ["Livestock"],
+    title: "Traditional Agricultural Practices in India",
+    description: "Sustainable and traditional farming techniques and their benefits.",
+    videoId: "CsvySMTeKbg",
+    categories: ["Crop Pattern", "Organic Farming"]
   },
   {
-    title: "Poultry Farming Tips",
-    description: "Boost poultry health and egg production.",
-    videoId: "4g0hJZkpF8Q",
-    categories: ["Livestock"],
+    title: "Innovating Indian Agriculture: Tech-Driven Solutions",
+    description: "Startups and innovators bringing tech solutions for irrigation, inputs and market linkages.",
+    videoId: "wl7toPs2Yrc",
+    categories: ["Technology", "Income Support"]
   },
   {
-    title: "Dairy Farm Management",
-    description: "Improve milk yield with scientific dairy practices.",
-    videoId: "nW6Z8A2uSSE",
-    categories: ["Livestock"],
+    title: "A Playbook for Profitable Organic Farming (Large Scale)",
+    description: "Case study of large-scale organic farming practices and economics.",
+    videoId: "OTdWm16WMAY",
+    categories: ["Organic Farming", "Crop Pattern"]
   },
   {
-    title: "Weather Forecasting for Farmers",
-    description: "Learn how to use weather apps for farming decisions.",
-    videoId: "nDJXtS3AGoM",
-    categories: ["Weather"],
+    title: "How Can You Make 1 Crore/Year With Farming? | Plan & Crops",
+    description: "Business view: crop selection, planning and income strategies for higher returns.",
+    videoId: "nNP4o1wE6Vo",
+    categories: ["Income Support", "Technology"]
   },
   {
-    title: "Impact of Monsoon on Farming",
-    description: "Understand how monsoon affects crops and planning.",
-    videoId: "F89-7JpP6vE",
-    categories: ["Weather"],
+    title: "Pioneering Sustainable Agricultural Practices in India",
+    description: "Climate-smart agriculture techniques used by progressive farmers.",
+    videoId: "SJ_v8-UPqbI",
+    categories: ["Weather", "Crop Pattern"]
   },
   {
-    title: "Climate Change and Agriculture",
-    description: "Learn how to adapt farming to climate change.",
-    videoId: "E4u0JkLJbZ8",
-    categories: ["Weather"],
+    title: "Innovators & Greenhouses: Tech Solutions for Secure Harvests",
+    description: "Protected cultivation and greenhouse technologies showcased for smallholders.",
+    videoId: "9MkDRPSneqc",
+    categories: ["Technology"]
   },
   {
-    title: "Farmer Producer Organizations",
-    description: "How FPOs empower farmers collectively.",
-    videoId: "4Bbrf8gR8kQ",
-    categories: ["Social"],
+    title: "DW Documentary: Artificial Intelligence in Agriculture",
+    description: "Global look at AI in farming — useful lessons for India’s farms.",
+    videoId: "Vpchh74tU3U",
+    categories: ["Technology"]
   },
   {
-    title: "Women Empowerment in Farming",
-    description: "Role of women in Indian agriculture.",
-    videoId: "Q3pM4tJrGko",
-    categories: ["Social"],
+    title: "Can AI help solve India's food and water insecurity?",
+    description: "Explores AI-driven tools for food security and water management.",
+    videoId: "Dc1PCs256Q0",
+    categories: ["Technology", "Water/Irrigation"]
   },
   {
-    title: "Success Stories of Farmers",
-    description: "Inspiring stories of progressive farmers.",
-    videoId: "Bqv5yXU4S4M",
-    categories: ["Social"],
+    title: "India at the Cusp of an Agri-Tech Revolution",
+    description: "How agritech and policy changes are reshaping Indian agriculture.",
+    videoId: "KZ5BSm_OEJA",
+    categories: ["Technology", "Social"]
   },
   {
-    title: "Organic Vegetable Farming",
-    description: "Learn how to grow organic vegetables.",
-    videoId: "Q0Z2w3jqR2o",
-    categories: ["Crop Pattern"],
+    title: "How IoT Is Changing The Indian Farming Industry",
+    description: "IoT sensors, remote monitoring and farm automation use cases.",
+    videoId: "DcYSSTu3rxw",
+    categories: ["Technology"]
   },
   {
-    title: "Water-Saving Irrigation Techniques",
-    description: "Use drip irrigation to save water.",
-    videoId: "4cN7s7pSkKM",
-    categories: ["Water", "Crop Pattern"],
+    title: "India's Farm Sector: Using Agritech To Make India A Farming Powerhouse",
+    description: "Media coverage of agritech adoption and its impact on productivity.",
+    videoId: "3Qm3CWSs5Fc",
+    categories: ["Technology", "Income Support"]
   },
   {
-    title: "Fertilizer Management",
-    description: "Right way to use fertilizers for crops.",
-    videoId: "b6uNnUTkgUo",
-    categories: ["Crop Pattern"],
+    title: "High Tech Dairy Farm in India | Fully Automated",
+    description: "Automation in dairy — milking machines and modern dairy farm management.",
+    videoId: "yzliYYwYWPM",
+    categories: ["Livestock", "Technology"]
   },
   {
-    title: "Vermicomposting for Soil Health",
-    description: "Improve soil using vermicomposting.",
-    videoId: "nM4cS5b5G1I",
-    categories: ["Soil", "Crop Pattern"],
+    title: "Indian farmers look to AI to help struggling farms | AFP",
+    description: "AFP report on pilots using AI to give crop advice to farmers.",
+    videoId: "ZOqfo3NNVb8",
+    categories: ["Technology", "Social"]
   },
   {
-    title: "Hydroponics Farming",
-    description: "Grow crops without soil using hydroponics.",
-    videoId: "du0H0c7yHjo",
-    categories: ["Crop Pattern"],
+    title: "Smart Farming & Climate Resilience (Case Studies)",
+    description: "Practical methods to adapt cropping patterns and irrigation for climate impacts.",
+    videoId: "sGEhxW3eFrg",
+    categories: ["Weather", "Water/Irrigation"]
   },
   {
-    title: "Fisheries and Aquaculture",
-    description: "Basics of fish farming for beginners.",
-    videoId: "1uR6kfcxOlk",
-    categories: ["Livestock"],
-  },
-  {
-    title: "Agri Drones in Farming",
-    description: "Use of drones for spraying and monitoring.",
-    videoId: "wBz0oDg1iGk",
-    categories: ["Technology", "Crop Pattern"],
+    title: "AI in Agriculture — How it helps predict crop needs",
+    description: "Explainer: how data and ML predict irrigation and fertilizer needs.",
+    videoId: "qBZG3leMZMY",
+    categories: ["Technology"]
   },
 ];
 
