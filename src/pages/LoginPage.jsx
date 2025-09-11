@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import man from "../assets/features/man.png";
-
+import Landing from "../pages/Landing";
 const LoginPage = ({ setUser }) => {
   const [isLoading, setIsLoading] = useState(false);
 

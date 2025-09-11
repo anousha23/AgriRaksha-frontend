@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Element } from "react-scroll";
 import { MessageCircle } from "lucide-react";
-
+import MarketAnalysisPage from "./pages/MarketAnalysis";
 import Features from "./pages/Features";
 import LoginPage from "./pages/LoginPage";
 import Upload from "./pages/Upload";
@@ -13,14 +13,13 @@ import Gov from "./pages/GovernmentSchemes";
 import Knowledge from "./pages/KnowledgeHub";
 import Silo from "./pages/Silo";
 import Profile from "./pages/Profile";
-
+import Landing from "./pages/Landing";
 import ChatbotWindow from "./components/ChatBot";
 
 function App() {
   const [user, setUser] = useState(null);
   const [chatOpen, setChatOpen] = useState(false);
 
-  // Check login status on mount
   useEffect(() => {
     fetch("http://localhost:5000/auth/profile", { credentials: "include" })
       .then((res) => {
@@ -65,6 +64,8 @@ function App() {
           <Route path="/silo" element={<Silo />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/features" element={<Features />} />
+          <Route path="/features" element={<Features />} />
+           <Route path="/market-analysis" element={<MarketAnalysisPage />} />
         </Routes>
 
   

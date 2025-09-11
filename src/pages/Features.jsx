@@ -54,7 +54,7 @@ const Features = () => {
     },
     {
       title: "Market Price Trends",
-      route: "/silo",
+      route: "/market-analysis",
       description: "Get AI-powered insights into produce rates.",
       icon: (
         <img
