@@ -9,6 +9,9 @@ import SmartNudge from "./pages/SmartNudge";
 import Gov from "./pages/GovernmentSchemes";
 import Knowledge from "./pages/KnowledgeHub";
 import Silo from "./pages/Silo";
+import Profile from "./pages/Profile";
+import { Element } from "react-scroll";
+
 
 function App() {
   const [user, setUser] = useState(null);
@@ -40,15 +43,28 @@ function App() {
       <Routes>
         <Route path="/" element={
           <>
-          <Herosection />
-          <Features />  
-          <Footer />
+          
+          
+
+      <Element name="home">
+        <Herosection />
+      </Element>
+
+      <Element name="features">
+        <Features /> 
+      </Element>
+
+      <Element name="footer">
+        <Footer />
+      </Element>
           </>} />
         <Route path="/upload" element={<Upload />} />
         <Route path="/smartnudge" element={<SmartNudge />} />
         <Route path="/knowledge" element={<Knowledge />} />
         <Route path="/schemes" element={<Gov />} />
         <Route path="/silo" element={<Silo/>} />
+        <Route path="/profile" element={<Profile/>} />
+        <Route path="/features" element={<Profile/>} />
 
       </Routes>
     </BrowserRouter>
