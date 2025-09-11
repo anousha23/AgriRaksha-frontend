@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import Upload from "./pages/Upload";
 import Footer from "./pages/Footer";
+import Herosection from "./pages/HeroSection";
 
 
 function App() {
@@ -32,14 +33,19 @@ function App() {
       {user ? (
        <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Features />} />
+        <Route path="/" element={
+          <>
+          <Herosection />
+          <Features />  
+          {/*<Footer />*/}
+          </>} />
         <Route path="/upload" element={<Upload />} />
       </Routes>
     </BrowserRouter>
       ) : (
         <LoginPage setUser={setUser} />
       )}
-      <Footer />
+     
   
     </div>
   );
