@@ -37,7 +37,7 @@ function App() {
           <>
           <Herosection />
           <Features />  
-          {/*<Footer />*/}
+          <Footer />
           </>} />
         <Route path="/upload" element={<Upload />} />
       </Routes>
@@ -52,3 +52,4 @@ function App() {
 }
 
 export default App;
+
