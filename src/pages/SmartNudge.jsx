@@ -1,12 +1,17 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const SmartNudge = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     phone: "",
     location: "",
     agree: false,
   });
+  const handleBackClick = () => {
+    navigate("/");
+  };
 
   const [showMap, setShowMap] = useState(false);
 
@@ -27,6 +32,21 @@ const SmartNudge = () => {
 
   return (
     <div className="w-full min-h-screen bg-[#FBE9D5] flex flex-col md:flex-row items-center gap-10 justify-center p-4">
+      <button
+        onClick={handleBackClick}
+        className="fixed top-4 left-4 bg-[#DF6750] hover:bg-[#c95740] text-white px-4 py-2 rounded-lg shadow-lg z-50"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
       <div className="w-full max-w-lg bg-[#F4947E] rounded-2xl shadow-lg p-6 sm:p-8">
         <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 text-center">
           Smart Nudge

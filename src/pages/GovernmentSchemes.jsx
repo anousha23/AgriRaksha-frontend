@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Search, Filter } from "lucide-react";
 import schemes from "../data/schemes";
 import SchemeCard from "../components/SchemeCard";
+import { useNavigate } from "react-router-dom";
 
 const categoriesList = [
   "Income Support",
@@ -13,9 +14,14 @@ const categoriesList = [
 ];
 
 const GovernmentSchemes = () => {
+   const navigate = useNavigate();
   const [query, setQuery] = useState("");
   const [showFilters, setShowFilters] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState([]);
+
+   const handleBackClick = () => {
+    navigate("/");
+  };
 
   const handleCategoryChange = (category) => {
     setSelectedCategories((prev) =>
@@ -35,14 +41,30 @@ const GovernmentSchemes = () => {
 
   return (
     <div className="min-h-screen bg-[#f8f6ec] p-6">
-      <div className="bg-blue-300 rounded-xl p-6 mb-6">
-        <h1 className="text-2xl sm:text-3xl font-bold text-white">
-          Government Schemes
-        </h1>
-        <p className="text-white text-sm sm:text-base">
-          Find more about the government schemes you're eligible for and how to avail them
-        </p>
-      </div>
+      <button
+        onClick={handleBackClick}
+        className="fixed top-4 left-4 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg z-50"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth={2}
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+<div className="bg-blue-300 rounded-xl p-6 mb-6 max-w-4xl mx-auto text-center">
+  <h1 className="text-2xl sm:text-3xl font-bold text-white">
+    Government Schemes
+  </h1>
+  <p className="text-white text-sm sm:text-base">
+    Find more about the government schemes you're eligible for and how to avail them
+  </p>
+</div>
+
 
       <div className="flex flex-col sm:flex-row items-center gap-4 mb-4">
         <div className="relative flex-grow w-full sm:w-auto">

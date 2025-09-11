@@ -24,12 +24,12 @@ const Features = () => {
       className: "row-span-3 col-span-2",
     },
     {
-      title: "Crop Analysis",
-      description: "Get AI-powered insights into crop health.",
+      title: "Market Price Trends",
+      description: "Get AI-powered insights into produce rates.",
       icon: (
         <img
           src={cropt}
-          alt="Crop Analysis"
+          alt="market price trends"
           className="w-[40vw] md:w-[18vw] lg:w-[10vw]"
         />
       ),
@@ -38,6 +38,7 @@ const Features = () => {
     },
     {
       title: "Smart Nudge",
+      route: "/smartnudge",
       description: "Receive timely alerts and recommendations.",
       icon: (
         <img
@@ -52,6 +53,7 @@ const Features = () => {
 
     {
       title: "Gov Schemes",
+      route: "/schemes",
       description: "Stay updated with latest government schemes.",
       icon: (
         <img
@@ -80,6 +82,7 @@ const Features = () => {
 
     {
       title: "Knowledge Hub",
+      route:"/knowledge",
       description: "Learn and explore modern farming techniques.",
       icon: (
         <img

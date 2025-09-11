@@ -5,7 +5,9 @@ import LoginPage from "./pages/LoginPage";
 import Upload from "./pages/Upload";
 import Footer from "./pages/Footer";
 import Herosection from "./pages/HeroSection";
-
+import SmartNudge from "./pages/SmartNudge";
+import Gov from "./pages/GovernmentSchemes";
+import Knowledge from "./pages/KnowledgeHub";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -40,6 +42,9 @@ function App() {
           <Footer />
           </>} />
         <Route path="/upload" element={<Upload />} />
+        <Route path="/smartnudge" element={<SmartNudge />} />
+        <Route path="/knowledge" element={<Knowledge />} />
+        <Route path="/schemes" element={<Gov />} />
       </Routes>
     </BrowserRouter>
       ) : (
